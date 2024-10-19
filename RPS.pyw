@@ -22,7 +22,7 @@ class Win():
     def __init__(self):
         self.win = Tk()
         self.win.title('RPS')
-        # self.win.resizable(0,0)
+        self.win.resizable(0,0)
         self.win.geometry('960x540')
         self.win.configure(bg=main_bg_colour)
 
