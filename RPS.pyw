@@ -65,12 +65,18 @@ class Win():
 
         Frame(self.menu, width=920, bg=secondary_bg_colour).grid(row=0, column=0) # sets width and centers widgets
         
-        Label(self.menu, text='Rock Paper Scissors', font=title_font, bg=secondary_bg_colour).grid(pady=90) # Title
+        Label(self.menu, text='Rock Paper Scissors', font=title_font, bg=secondary_bg_colour).grid(pady=60) # Title
         Button(self.menu,
                 text='Play', font=large_font,
                 width=10, bg='green3', activebackground='green4',
                 border=False, cursor='mouse',
                 command=self.create_play_frame).grid() # Play button
+
+        Button(self.menu,
+                text='Exit', font=large_font,
+                width=10, bg='red', activebackground='red4',
+                border=False, cursor='X_cursor',
+                command=self.win.destroy).grid(pady=10) # Exit button
 
     def create_play_frame(self):
         self.menu.destroy()
@@ -103,21 +109,21 @@ class Win():
                 text='Singleplayer', font=small_font,
                 bg='green3', activebackground='green4',
                 border=False, cursor='mouse', width=15,
-                command=lambda: self.create_singleplayer_frame(username1_entry.get(), username2_entry.get(), rounds_entry.get())).grid(pady=5)
+                command=lambda: self.create_singleplayer_frame(username1_entry.get(), username2_entry.get(), rounds_entry.get())).grid(pady=15)
 
         # Computer mode button
         Button(self.play,
                 text='Against Computer', font=small_font,
                 bg='green3', activebackground='green4',
                 border=False, cursor='mouse', width=15,
-                command=lambda: self.create_computer_frame(username1_entry.get(), rounds_entry.get())).grid(pady=5)
+                command=lambda: self.create_computer_frame(username1_entry.get(), rounds_entry.get())).grid()
 
         # Back to menu button
         Button(self.play,
                 text='Back to menu', font=small_font,
                 bg='red', fg='white', activebackground='red4', activeforeground='white',
                 border=False, cursor='X_cursor', width=15,
-                command=self.back_to_menu).grid(pady=5)
+                command=self.back_to_menu).grid(pady=15)
 
     # to main menu
     def back_to_menu(self):
@@ -290,7 +296,7 @@ class Win():
             text='Exit', font=small_font,
             bg='red', fg='white', activebackground='red4', activeforeground='white',
             border=False, cursor='X_cursor', width=15,
-            command=self.exit_game).grid(row=5, column=1)
+            command=self.exit_game).grid(row=5, column=2)
 
     # Rock paper scissors computer mode logic
     def rps_computer(self, choice):
